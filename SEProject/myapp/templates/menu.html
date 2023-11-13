@@ -1,11 +1,52 @@
 {% extends "base.html" %} {% block content %}
-<h1>Menu</h1>
+<h1>Entrees</h1>
 <ul>
-    {% for menuI in menu %}
+    {% for entree_item in entree %}
     <li>
-        {{ menuI.title }}: {% if menuI.completed %}Completed{% else %}Not completed{% endif %}: ${{ menuI.price }}
-        <img src="{{ menuI.picture }}">
+        {{ entree_item.title }}: ${{ entree_item.price }}: {{ entree_item.picture }}
+        <img src="{{ entree_item.picture }}">
     </li>
     {% endfor %}
 </ul>
+
+<h1>Appetizers</h1>
+<ul>
+    {% for app_item in app %}
+    <li>
+        {{ app_item.title }}: ${{ app_item.price }}
+        <img src="{{ app_item.picture }}">
+    </li>
+    {% endfor %}
+</ul>
+
+<h1>Sides</h1>
+<ul>
+    {% for side_item in side %}
+    <li>
+        {{ side_item.title }}: ${{ side_item.price }}
+        <img src="{{ side_item.picture }}">
+    </li>
+    {% endfor %}
+</ul>
+
+<h1>Beverages</h1>
+<ul>
+    {% for bev_item in bev %}
+    <li>
+        {{ bev_item.title }}: ${{ bev_item.price }}
+        <img src="{{ bev_item.picture }}">
+    </li>
+    {% endfor %}
+</ul>
+
+<h1>Deserts</h1>
+<ul>
+    {% for desert_item in desert %}
+    <li>
+        {{ desert_item.title }}: ${{ desert_item.price }}
+        <img src="{{ desert_item.picture }}">
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
