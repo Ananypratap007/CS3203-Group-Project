@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.core import serializers
 from .models import EntreeItem, AppetizerItem, BeverageItem, DesertItem, SideItem
 
 def home(request):
@@ -19,3 +20,7 @@ def menu(request):
 
     }
     return render(request, "menu.html", index)
+
+def entree_Json(request):
+    data = serializers.serialize('json  ', EntreeItem.objects.all())
+    return HttpResponse(data, content_type='application/json')
