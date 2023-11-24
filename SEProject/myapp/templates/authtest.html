@@ -1,0 +1,36 @@
+<h1>Current request.path {{ request.path }}</h1>
+{% if user.is_authenticated %}
+<p>Authenticated as
+<pre>
+Name: {{ user.get_full_name }}
+Email: {{ user.email }}
+Id: {{ user.id }}
+</pre>
+</p>
+<p>You can <a href="{% url 'logout' %}?next={% url 'myapp:open' %}">Logout</a></p>
+{% else %}
+<p>You are not logged in</p>
+<p>You can <a href="{% url 'login' %}?next={{ request.path }}">Login</a> if you like.</p>
+{% endif %}
+<ul>
+    <li>
+        Go to <a href="{% url 'myapp:open' %}">{% url 'myapp:open' %}</a>
+            (no login required)
+    </li>
+    <li>
+        Go to <a href="{% url 'myapp:apereo' %}">{% url 'myapp:apereo' %}</a>
+            (no login required)
+    </li>
+    <li>
+        Go to <a href="{% url 'myapp:manual' %}">{% url 'myapp:manual' %}</a>
+            (protected by user.is_authenticated)
+    </li>
+    <li>
+        Go to <a href="{% url 'myapp:protect' %}">{% url 'myapp:protect' %}</a>
+            (protected by LoginRequiredMixin)
+    </li>
+    <li>
+        Go to <a href="{% url 'myapp:python' %}">{% url 'myapp:python' %}</a>
+            dump request.user data in python
+    </li>
+</ul>

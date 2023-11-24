@@ -31,3 +31,6 @@ class SideItem(models.Model):
     title = models.CharField(max_length=200)
     price = models.DecimalField(default = 0, max_digits=4, decimal_places=2)
     picture = models.ImageField(upload_to = 'menu_images', null = True)
+
+# class CustomUser(AbstractUser):
+#     pass
