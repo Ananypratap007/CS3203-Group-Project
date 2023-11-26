@@ -1,0 +1,30 @@
+/* Add this to your existing style.css or create a new profile.css file */
+
+#profile {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.order-history {
+    max-width: 400px;
+}
+
+#order-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}

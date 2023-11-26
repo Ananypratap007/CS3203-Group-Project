@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Restaurant Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+  <header>
+    <div id="logo">
+      <a href="home.html">
+        <img src="asset/logo.jpg" alt="Logo" height="80" width="80">
+      </a>
+    </div>
+    <nav>
+        <a href="home.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="profile.html">PROFILE</a>
+        <a href="cart.html">CART</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#" id="order-now-button">ORDER NOW</a>
+      </nav>
+  </header>
+
+    <div class="type-title">
+        Appetizer
+    </div>
+    <div class="menu-detail">
+        <div class="individual-item">
+            <div class="dish-name">Biryani</div>
+            <div class="price-dish">$12.99</div>
+            <div class="dish-img">
+              <img src="asset/cooked rice.png" alt="Biryani Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+        </div>
+        <div class="individual-item">
+            <div class="dish-name">Sushi Rolls</div>
+            <div class="price-dish">$15.99</div>
+            <div class="dish-img">
+              <img src="asset/sushi-rolls.jpg" alt="Sushi Rolls Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Sushi Rolls', 15.99)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items here -->
+    </div>
+
+    <div class="type-title">
+        Entrees
+    </div>
+
+    <div class="menu-detail">
+        <div class="individual-item">
+            <div class="dish-name">Pad Thai</div>
+            <div class="price-dish">$10.99</div>
+            <div class="dish-img">
+              <img src="asset/pad-thai.jpg" alt="Pad Thai Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Pad Thai', 10.99)">Add to Cart</button>
+        </div>
+        <div class="individual-item">
+            <div class="dish-name">Teriyaki Chicken</div>
+            <div class="price-dish">$14.99</div>
+            <div class="dish-img">
+              <img src="asset/teriyaki-chicken.jpg" alt="Teriyaki Chicken Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Teriyaki Chicken', 14.99)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items here -->
+    </div>
+
+
+
+        <!-- New Section for Contact Details and Social Media -->
+        <section id="contact">
+            <div class="contact-info">
+              <h3>Contact Us</h3>
+              <p>Email: info@restaurant.com</p>
+              <p>Phone: +1 (123) 456-7890</p>
+              <p>Address: 123 Main Street, Cityville</p>
+            </div>
+      
+            <div class="social-media">
+              <h3>Follow Us</h3>
+              <a href="#" class="social-link">
+                <img src="asset/facebook-icon.png" alt="Facebook">
+              </a>
+              <a href="#" class="social-link">
+                <img src="asset/twitterX-icon.png" alt="Twitter">
+              </a>
+              <a href="#" class="social-link">
+                <img src="asset/instagram-icon.png" alt="Instagram">
+              </a>
+            </div>
+          </section>
+
+    <footer>
+        <p>&copy; 2023 THAI DELIGHT</p>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+
+</html>
