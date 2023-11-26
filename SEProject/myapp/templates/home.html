@@ -1,4 +1,18 @@
-{% extends "base.html" %} {%block title %} Home Page {% endblock %}
+{% extends "base.html" %} 
 {% block content %}
-<p>this is the home page</p>
+{% if user.is_authenticated %}
+<p>Profile:
+<pre>
+Name: {{user.username }}
+Email: {{ user.email }}
+Joined: {{ user.date_joined }}
+</pre>
+</p>
+<p>You can <a href="{% url 'logout' %}?next={% url 'myapp:home' %}">Logout</a></p>
+{% else %}
+<p>You are not logged in</p>
+<p>You can <a href="{% url 'login' %}?next={{ request.path }}">Login</a> if you have an account.</p>
+<p>You can <a href="{% url 'myapp:signup' %}?next={{ request.path }}">Sign Up</a> if you need to create an account.</p>
+{% endif %}
+
 {% endblock %}

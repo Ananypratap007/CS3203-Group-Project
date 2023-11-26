@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, intial-scale=1, shrink-to-fit=no"
-        />
-   
-    <title>{% block title %}Django App{% endblock %}</title>
-    <!-- Bootstrap CSS-->
-    <link
-        hreft="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        rel="stylesheet"
-        />
+    <title>{% block title %}CS3203 Software Engineering Resturant App{% endblock %}</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">My Django App</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+        <nav>
+            <h2>Resturant</h2>
+
+            <div>
+                <ul>
+                    <li >
+                        <a href="{% url 'myapp:home' %}">
+                            <Button>Home</Button>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a href="{% url 'myapp:menu' %}">
+                            <button>Menu</button>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav_link" href="#">Contact</a>
-                    </li>
+
                 </ul> 
             </div>    
         </nav>

@@ -36,22 +36,22 @@ def entree_Json(request):
 
 class OpenView(View) :
     def get(self, request):
-        return render(request, 'authtest.html')
+        return render(request, 'home.html')
 
 class ApereoView(View) :
     def get(self, request):
-        return render(request, 'authtest.html')
+        return render(request, 'home.html')
 
 class ManualProtect(View) :
     def get(self, request):
         if not request.user.is_authenticated :
             loginurl = reverse('login')+'?'+urlencode({'next': request.path})
             return redirect(loginurl)
-        return render(request, 'authtest.html')
+        return render(request, 'home.html')
 
 class ProtectView(LoginRequiredMixin, View) :
     def get(self, request):
-        return render(request, 'authtest.html')
+        return render(request, 'home.html')
 
 class DumpPython(View) :
     def get(self, req):
@@ -75,7 +75,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('authtest.html')
+            return redirect('/')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
