@@ -11,7 +11,15 @@
         </tr>
     </thead>
     <tbody>
-
+        {% for product in products %}
+        <tr>
+            <td><p>{{product.category.name}}</p> </td>
+            <td><p>{{product.name}}</p> </td>
+            <td><p>{{product.price}}</p> </td>
+            <td><img src="{{product.picture.url}}" alt="" height=100px width=100px/> </td>
+            <td><button>Add to Cart</button></td>
+        </tr>
+        {% endfor %}
         
     </tbody>
 </table>

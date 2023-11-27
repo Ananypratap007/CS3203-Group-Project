@@ -42,11 +42,12 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 def cart(request):
+    
     cart = None
     cartitems = []
     
     if request.user.is_authenticated:
-        cart = Cart.objects.get_or_create(user=request.user, completed=False)
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
         cartitems = cart.cartitems.all()
     
     context = {"cart":cart, "items":cartitems}
@@ -58,8 +59,8 @@ def add_to_cart(request):
     product = Product.objects.get(id=product_id)
     
     if request.user.is_authenticated:
-        cart = Cart.objects.get_or_create(user=request.user, completed=False)
-        cartitem =CartItem.objects.get_or_create(cart=cart, product=product)
+        cart, created  = Cart.objects.get_or_create(user=request.user, completed=False)
+        cartitem, created  =CartItem.objects.get_or_create(cart=cart, product=product)
         cartitem.quantity += 1
         cartitem.save()
         
