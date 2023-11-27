@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
 {% block content %}
+
 <table>
     <thead>
         <tr>
@@ -12,17 +13,18 @@
     </thead>
     <tbody>
         {% for product in products %}
-        <tr>
+        <tr class="productContainer">
             <td><p>{{product.category.name}}</p> </td>
             <td><p>{{product.name}}</p> </td>
             <td><p>{{product.price}}</p> </td>
             <td><img src="{{product.picture.url}}" alt="" height=100px width=100px/> </td>
-            <td><button>Add to Cart</button></td>
+            <td><button value="{{product.id}}" >Add to Cart</button></td>
         </tr>
         {% endfor %}
         
     </tbody>
 </table>
+
 
 
 {% endblock %}

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
     <head>
     <title>{% block title %}CS3203 Software Engineering Resturant App{% endblock %}</title>
@@ -40,3 +42,5 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min"></script>
     </body>
 </html>
+
+<script src="{% static 'js/script.js' %}"></script>
