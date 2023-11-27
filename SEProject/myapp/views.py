@@ -7,67 +7,28 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.utils.http import urlencode
 from .forms import SignupForm
-from .models import EntreeItem, AppetizerItem, BeverageItem, DesertItem, SideItem
+from .models import Product, Cart, CartItem
+from django.http import JsonResponse
+import json
+from django.contrib import messages
 
 
 def home(request):
     return render(request, "menu.html")
 
 def menu(request):
-    eitems = EntreeItem.objects.all()
-    aitems = AppetizerItem.objects.all()
-    sitems = SideItem.objects.all()
-    bitems = BeverageItem.objects.all()
-    ditems = DesertItem.objects.all()
-    index = {
-        "entree": eitems,
-        "app" : aitems,
-        "side" : sitems,
-        "bev" : bitems,
-        "desert" : ditems
+    products = Product.objects.all()
+    
+    cart = None
 
-    }
-    return render(request, "menu.html", index)
+    if request.user.is_authenticated:
+        cart = Cart.objects.get_or_create(user=request.user, completed=False)
+        
+    context = {"products" : products, "cart" : cart}
+    return render(request, "menu.html", context)
 
-def entree_Json(request):
-    data = serializers.serialize('json  ', EntreeItem.objects.all())
-    return HttpResponse(data, content_type='application/json')
-
-
-class OpenView(View) :
-    def get(self, request):
-        return render(request, 'home.html')
-
-class ApereoView(View) :
-    def get(self, request):
-        return render(request, 'home.html')
-
-class ManualProtect(View) :
-    def get(self, request):
-        if not request.user.is_authenticated :
-            loginurl = reverse('login')+'?'+urlencode({'next': request.path})
-            return redirect(loginurl)
-        return render(request, 'home.html')
-
-class ProtectView(LoginRequiredMixin, View) :
-    def get(self, request):
-        return render(request, 'home.html')
-
-class DumpPython(View) :
-    def get(self, req):
-        resp = "<pre>\nUser Data in Python:\n\n"
-        resp += "Login url: " + reverse('login') + "\n"
-        resp += "Logout url: " + reverse('logout') + "\n\n"
-        if req.user.is_authenticated:
-            resp += "User: " + req.user.username + "\n"
-            resp += "Email: " + req.user.email + "\n"
-        else:
-            resp += "User is not logged in\n"
-
-        resp += "\n"
-        resp += "</pre>\n"
-        resp += """<a href="/">Go back</a>"""
-        return HttpResponse(resp)
+def profile(request):
+    return render(request, "profile.html")
 
 def signup(request):
     if request.method == 'POST':
@@ -79,3 +40,40 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
+
+def cart(request):
+    cart = None
+    cartitems = []
+    
+    if request.user.is_authenticated:
+        cart = Cart.objects.get_or_create(user=request.user, completed=False)
+        cartitems = cart.cartitems.all()
+    
+    context = {"cart":cart, "items":cartitems}
+    return render(request, "cart.html", context)
+
+def add_to_cart(request):
+    data = json.loads(request.body)
+    product_id = data["id"]
+    product = Product.objects.get(id=product_id)
+    
+    if request.user.is_authenticated:
+        cart = Cart.objects.get_or_create(user=request.user, completed=False)
+        cartitem =CartItem.objects.get_or_create(cart=cart, product=product)
+        cartitem.quantity += 1
+        cartitem.save()
+        
+        
+        num_of_item = cart.num_of_items
+        
+        print(cartitem)
+    return JsonResponse(num_of_item, safe=False)
+
+
+def confirm_payment(request, pk):
+    cart = Cart.objects.get(id=pk)
+    cart.completed = True
+    cart.save()
+    messages.success(request, "Payment made successfully")
+    return redirect("menu")
+

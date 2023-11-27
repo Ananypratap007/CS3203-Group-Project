@@ -7,7 +7,7 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    pfp = models.ImageField(upload_to ='uploads/')
+    pfp = models.ImageField(upload_to ='uploads/', default = "")
     username = models.CharField(max_length = 200)
     email = models.EmailField(_("email address"), primary_key = True)
     dob = models.DateTimeField(default=timezone.now)
@@ -18,7 +18,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ["username"]
 
     objects = CustomUserManager()
 

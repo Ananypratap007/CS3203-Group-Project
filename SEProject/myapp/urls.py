@@ -7,10 +7,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name="home"),
     path('signup', views.signup, name="signup"),
     path("menu/", views.menu, name="menu"),
-    # path('open', views.OpenView.as_view(), name='open'),
-    # path('apereo', views.ApereoView.as_view(), name='apereo'),
-    # path('manual', views.ManualProtect.as_view(), name='manual'),
-    # path('protect', views.ProtectView.as_view(), name='protect'),
-    # path('python', views.DumpPython.as_view(), name='python'),
-    # path('json', views.entree_Json, name="json")
+    path("profile", views.profile, name="profile"),
+    path("cart", views.cart, name="cart"),
+    path("add_to_cart", views.add_to_cart, name= "add"),
+    path("confirm_payment/<str:pk>", views.confirm_payment, name="add")
 ]
