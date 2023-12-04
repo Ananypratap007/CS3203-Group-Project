@@ -8,24 +8,17 @@
     </div>
     <div class="menu-detail">
         {% for product in products %}
+        {% if product.category.name == "appetizer" %}
         <div class="individual-item">
             <div class="dish-name">{{product.name}}</div>
-            <div class="price-dish">{{product.price}}</div>
+            <div class="price-dish">${{product.price}}</div>
             <div class="dish-img">
               <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
             <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
         </div>
+        {% endif %}
         {% endfor %}
-        <div class="individual-item">
-            <div class="dish-name">Sushi Rolls</div>
-            <div class="price-dish">$15.99</div>
-            <div class="dish-img">
-              <img src="{% static 'asset/cooked-rice.png' %}" alt="Sushi Rolls Image">
-            </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Sushi Rolls', 15.99)">Add to Cart</button>
-        </div>
-        <!-- Add more menu items here -->
     </div>
 
     <div class="type-title">
@@ -33,22 +26,18 @@
     </div>
 
     <div class="menu-detail">
+        {% for product in products %}
+        {% if product.category.name == "entree" %}
         <div class="individual-item">
-            <div class="dish-name">Pad Thai</div>
-            <div class="price-dish">$10.99</div>
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">${{product.price}}</div>
             <div class="dish-img">
-              <img src="{% static 'asset/cooked-rice.png' %}" alt="Pad Thai Image">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Pad Thai', 10.99)">Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
         </div>
-        <div class="individual-item">
-            <div class="dish-name">Teriyaki Chicken</div>
-            <div class="price-dish">$14.99</div>
-            <div class="dish-img">
-              <img src="{% static 'asset/cooked-rice.png' %}" alt="Teriyaki Chicken Image">
-            </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Teriyaki Chicken', 14.99)">Add to Cart</button>
-        </div>
+        {% endif %}
+        {% endfor %}
         <!-- Add more menu items here -->
     </div>
 
