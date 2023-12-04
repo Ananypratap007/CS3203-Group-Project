@@ -1,0 +1,30 @@
+{% extends "OLDbase.html" %} 
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr class="productContainer">
+            <td><p>{{product.category.name}}</p> </td>
+            <td><p>{{product.name}}</p> </td>
+            <td><p>{{product.price}}</p> </td>
+            <td><img src="{{product.picture.url}}" alt="" height=100px width=100px/> </td>
+            <td><button value="{{product.id}}" >Add to Cart</button></td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+
+
+{% endblock %}

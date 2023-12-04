@@ -1,12 +1,24 @@
-{% extends "base.html" %} 
+{% extends 'base.html' %} 
+{% load static %}
 {% block content %}
-{% if user.is_authenticated %}
-<p>Welcome to Resturant, {{user.username }}!</p>
-<p>You can <a href="{% url 'logout' %}?next={% url 'myapp:home' %}">Logout</a></p>
-{% else %}
-<p>Welcome Guest!</p>
-<p>You can <a href="{% url 'login' %}?next={{ request.path }}">Login</a> if you have an account.</p>
-<p>You can <a href="{% url 'myapp:signup' %}?next={{ request.path }}">Sign Up</a> if you need to create an account.</p>
-{% endif %}
+<html>
+<body>
+  <main>
+    <section id="hero">
+      <h2>LIMITED TIME</h2>
+      <h3>SHRIMP TEMPURA</h3>
+      <div id="descript-hero">
+        <p>Thai shrimp tempura infuses the classic Japanese
+          preparation with distinct Thai flavors, often
+          marinated in a blend of Thai spices before being
+          coated in a light tempura batter and deep-fried to
+          golden perfection.</p>
+        <a href="#" id="order-now-button">ORDER NOW</a>
+      </div>
+    </section>
+  </main>
 
-{% endblock %}
+</body>
+
+</html>
+{% endblock content %}

@@ -1,30 +1,57 @@
-{% extends "base.html" %} 
+{% extends 'base.html' %} 
+{% load static %}
 {% block content %}
+<html>
+<body>
+    <div class="type-title">
+        Appetizer
+    </div>
+    <div class="menu-detail">
+        <div class="individual-item">
+            <div class="dish-name">Biryani</div>
+            <div class="price-dish">$12.99</div>
+            <div class="dish-img">
+              <img src="{% static 'asset/cooked-rice.png' %}" alt="Biryani Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+        </div>
+        <div class="individual-item">
+            <div class="dish-name">Sushi Rolls</div>
+            <div class="price-dish">$15.99</div>
+            <div class="dish-img">
+              <img src="{% static 'asset/cooked-rice.png' %}" alt="Sushi Rolls Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Sushi Rolls', 15.99)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items here -->
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Category</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>Cart</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for product in products %}
-        <tr class="productContainer">
-            <td><p>{{product.category.name}}</p> </td>
-            <td><p>{{product.name}}</p> </td>
-            <td><p>{{product.price}}</p> </td>
-            <td><img src="{{product.picture.url}}" alt="" height=100px width=100px/> </td>
-            <td><button value="{{product.id}}" >Add to Cart</button></td>
-        </tr>
-        {% endfor %}
-        
-    </tbody>
-</table>
+    <div class="type-title">
+        Entrees
+    </div>
 
+    <div class="menu-detail">
+        <div class="individual-item">
+            <div class="dish-name">Pad Thai</div>
+            <div class="price-dish">$10.99</div>
+            <div class="dish-img">
+              <img src="{% static 'asset/cooked-rice.png' %}" alt="Pad Thai Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Pad Thai', 10.99)">Add to Cart</button>
+        </div>
+        <div class="individual-item">
+            <div class="dish-name">Teriyaki Chicken</div>
+            <div class="price-dish">$14.99</div>
+            <div class="dish-img">
+              <img src="{% static 'asset/cooked-rice.png' %}" alt="Teriyaki Chicken Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Teriyaki Chicken', 14.99)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items here -->
+    </div>
 
+    <script src="{% static 'js/cart.js' %}"></script>
+</body>
 
-{% endblock %}
+</html>
+{% endblock content %}

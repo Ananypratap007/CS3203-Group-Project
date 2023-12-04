@@ -1,0 +1,25 @@
+{% load static %}
+<head>
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+  </head>
+    <header>
+      <div id="logo">
+        <a href="home.html">
+          <img src="{% static 'asset/logo.jpg' %}" alt="Logo" height="80" width="80">
+        </a>
+      </div>
+      <nav>
+        <a href="{% url 'myapp:home' %}">HOME</a>
+        <a href="{% url 'myapp:menu' %}">MENU</a>
+        <a href="{% url 'myapp:profile' %}">PROFILE</a>
+        <a href="{% url 'myapp:cart' %}">CART</a>
+        <a href="{% url 'myapp:about' %}">ABOUT</a>
+        <a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a>
+        <a href="#" id="order-now-button">ORDER NOW</a>
+      </nav>
+    </header>

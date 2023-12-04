@@ -12,9 +12,13 @@ from django.http import JsonResponse
 import json
 from django.contrib import messages
 
+def about(request):
+    return render(request, "about.html")
+
+
 
 def home(request):
-    return render(request, "menu.html")
+    return render(request, "home.html")
 
 def menu(request):
     products = Product.objects.all()

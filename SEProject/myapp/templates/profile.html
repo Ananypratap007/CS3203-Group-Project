@@ -1,19 +1,29 @@
-{% extends "base.html" %} 
+{% extends 'base.html' %} 
+{% load static %}
 {% block content %}
-{% if user.is_authenticated %}
-<p>Profile:
-<pre>
-Username: {{user.username }}
-Email: {{ user.email }}
-Date of Birth: {{ user.dob }}
-Member Since: {{ user.date_joined }}
-</pre>
-</p>
-<p>You can <a href="{% url 'logout' %}?next={% url 'myapp:home' %}">Logout</a></p>
-{% else %}
-<p>You are not logged in</p>
-<p>You can <a href="{% url 'login' %}?next={{ request.path }}">Login</a> if you have an account.</p>
-<p>You can <a href="{% url 'myapp:signup' %}?next={{ request.path }}">Sign Up</a> if you need to create an account.</p>
-{% endif %}
+<html>
+<body>
+    <main>
+        <section id="profile">
+            <div class="profile-info">
+                <img id="profile-image" src="{% static 'asset/person.png' %}" alt="Profile Image">
+                <h2 id="customer-name">John Doe</h2>
+                <p id="customer-address">123 Main St, Cityville</p>
+                <p id="customer-email">john.doe@example.com</p>
+                <p id="customer-phone">+1 (123) 456-7890</p>
+            </div>
 
-{% endblock %}
+            <div class="order-history">
+                <h3>Order History</h3>
+                <ul id="order-list">
+                    <!-- Order items will be dynamically added here -->
+                </ul>
+            </div>
+        </section>
+        <script src="{% static 'js/profile.js' %}"></script>
+    </main>
+   
+</body>
+
+</html>
+{% endblock content %}

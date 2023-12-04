@@ -1,0 +1,110 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.441);
+    color: white;
+    padding: 10px;
+  }
+  
+  nav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  #logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    padding: 10px;
+    margin-right: 10px; /* Adjust the margin between links */
+  }
+  
+  #order-now-button {
+    background-color: #e74c3c; /* Nice red color for the order now button */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  main {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Additional styles for the hero section and menu */
+  #hero {
+    background-image: url('../asset/hero.jpg');
+    background-size: 100% 100%;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 50px 0; /* Adjust the top and bottom padding as needed */
+  }
+  
+  #descript-hero {
+    max-width: 600px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center-align the div within the hero section */
+  }
+  
+  #hero a {
+    display: inline-block;
+    background-color: #e74c3c; /* Nice red color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  
+  
+  
+  
+  /* Add this to your existing style.css or create a new home.css file */
+  
+  #contact {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .contact-info,
+  .social-media {
+    text-align: center;
+  }
+  
+  .social-link img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50%;
+  }
+  

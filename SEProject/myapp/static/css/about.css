@@ -1,0 +1,38 @@
+.about-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .about-img {
+    margin-right: 20px;
+  }
+  
+  .about-content {
+    max-width: 600px;
+    font-size: 20px;
+  }
+  
+
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-content h2 {
+    color: #333;
+  }
+  
+  .slogan {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .about-content p {
+    margin-bottom: 20px;
+  }
+  

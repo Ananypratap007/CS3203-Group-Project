@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+    <title>{% block title %}CS3203 Software Engineering Resturant App{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <h2>Resturant</h2>
+
+            <div>
+                <ul>
+                    <li>
+                        <a href="{% url 'myapp:home' %}">
+                            <Button>Home</Button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'myapp:menu' %}">
+                            <button>Menu</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'myapp:cart' %}">
+                            <button>Cart</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'myapp:profile' %}">
+                            <button>Profile</button>
+                        </a>
+                    </li>
+                </ul> 
+            </div>    
+        </nav>
+
+        <div class="container">{%block content %} {% endblock %}</div>
+
+        <!-- JQuery and Bootstrap Bundle (includes Popper)-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min"></script>
+    </body>
+</html>
+
+<script src="{% static 'js/script.js' %}"></script>
