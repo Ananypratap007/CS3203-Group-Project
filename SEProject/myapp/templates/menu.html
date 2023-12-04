@@ -7,14 +7,16 @@
         Appetizer
     </div>
     <div class="menu-detail">
+        {% for product in products %}
         <div class="individual-item">
-            <div class="dish-name">Biryani</div>
-            <div class="price-dish">$12.99</div>
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">{{product.price}}</div>
             <div class="dish-img">
-              <img src="{% static 'asset/cooked-rice.png' %}" alt="Biryani Image">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
             <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
         </div>
+        {% endfor %}
         <div class="individual-item">
             <div class="dish-name">Sushi Rolls</div>
             <div class="price-dish">$15.99</div>

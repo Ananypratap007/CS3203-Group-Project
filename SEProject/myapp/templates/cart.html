@@ -11,16 +11,14 @@
             Kevin Hart
         </div>
 
+        {% for item in items %}
         <div class="cart-items">
             <div class="cart-item">
-                <div class="item-name">Biryani</div>
-                <div class="item-quantity">
-                    <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
-                </div>
-                <div class="item-price">$12.99</div>
+                <div class="item-name">{{item.product.name}}</div>
+                <div class="item-quantity">{{item.quantity}}</div>
+                <div class="item-price">{{item.price}}</div>
             </div>
+        {% endfor %}
             <div class="cart-item">
                 <div class="item-name">Spring Rolls</div>
                 <div class="item-quantity">
@@ -35,7 +33,7 @@
         </div>
 
         <div class="cart-total">
-            <p>Total: $12.99</p>
+            <p>${{cart.total_price}}</p>
             <button id="checkout-button">Checkout</button>
         </div>
     </div>
