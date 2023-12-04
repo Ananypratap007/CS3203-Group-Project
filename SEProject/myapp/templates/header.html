@@ -24,6 +24,6 @@
         {% else %}
           <a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a> 
 {% endif %}
-        <a href="#" id="order-now-button">ORDER NOW</a>
+        <a href="{% url 'myapp:menu' %}" id="order-now-button">ORDER NOW</a>
       </nav>
     </header>

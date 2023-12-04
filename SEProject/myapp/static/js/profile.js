@@ -1,11 +1,6 @@
 // This script will handle dynamic updates to the profile page, including order history.
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Assume that you have a function to retrieve customer data
-    const customerData = getCustomerData();
-
-    // Display customer information
-    displayCustomerInfo(customerData);
 
     // Assume that you have a function to retrieve order history
     const orderHistory = getOrderHistory();
@@ -14,25 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     displayOrderHistory(orderHistory);
 });
 
-// Function to retrieve customer data (replace with actual implementation)
-function getCustomerData() {
-    return {
-        name: 'John Doe',
-        address: '123 Main St, Cityville',
-        email: 'john.doe@example.com',
-        phone: '+1 (123) 456-7890',
-        image: '/myapp/static/asset/person.png'
-    };
-}
-
-// Function to display customer information
-function displayCustomerInfo(customerData) {
-    document.getElementById('profile-image').src = customerData.image;
-    document.getElementById('customer-name').innerText = customerData.name;
-    document.getElementById('customer-address').innerText = customerData.address;
-    document.getElementById('customer-email').innerText = customerData.email;
-    document.getElementById('customer-phone').innerText = customerData.phone;
-}
 
 // Function to retrieve order history (replace with actual implementation)
 function getOrderHistory() {
