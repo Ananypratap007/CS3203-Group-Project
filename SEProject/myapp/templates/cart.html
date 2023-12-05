@@ -1,14 +1,14 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <html>
 <body>
     <div class="cart-main">
         <h2>Cart</h2>
-
+        {% if user.is_authenticated %}
         <div class="customer-info">
-            <label for="customer-name">Customer Name:</label>
-            Kevin Hart
+            <label for="customer-name">user:</label>
+            {{user.username}}
         </div>
 
         {% for item in items %}
@@ -16,7 +16,7 @@
             <div class="cart-item">
                 <div class="item-name">{{item.product.name}}</div>
                 <div class="item-quantity">{{item.quantity}}</div>
-                <div class="item-price">{{item.price}}</div>
+                <div class="item-price">${{item.price}}</div>
             </div>
         {% endfor %}
             <div class="cart-item">
@@ -39,6 +39,9 @@
     </div>
     <script src="{% static 'js/cart.js' %}"></script>
 </body>
+{% else %}
+            <p id="message">Login to see your cart!</p>
+{% endif %}
 
 </html>
 {% endblock content %}
