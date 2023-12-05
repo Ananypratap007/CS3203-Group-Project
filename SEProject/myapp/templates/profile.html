@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<html>
+<body>
+    <main>
+        <section id="profile">
+            {% if user.is_authenticated %}
+            <div class="profile-info">
+                <img id="profile-image" src="{% static 'asset/person.png' %}" alt="Profile Image">
+                <h2 id="customer-name">{{user.username }}</h2>
+                <p id="customer-address">123 Main St, Cityville</p>
+                <p id="customer-email">{{user.email}}</p>
+                <p id="customer-phone">+1 (123) 456-7890</p>
+            </div>
+            
+
+            <div class="order-history">
+                <h3>Order History</h3>
+                <ul id="order-list">
+                    <!-- Order items will be dynamically added here -->
+                </ul>
+            </div>
+            {% else %}
+            <p id="message">You are not logged in</p>
+            {% endif %}
+        </section>
+        <script src="{% static 'js/profile.js' %}"></script>
+    </main>
+   
+</body>
+
+</html>
+{% endblock content %}

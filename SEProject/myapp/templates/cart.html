@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+<body>
+    <div class="cart-main">
+        <h2>Cart</h2>
+        {% if user.is_authenticated %}
+        <div class="customer-info">
+            <label for="customer-name">user:</label>
+            {{user.username}}
+        </div>
+
+        {% for item in items %}
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="item-name">{{item.product.name}}</div>
+                <div class="item-quantity">{{item.quantity}}</div>
+                <div class="item-price">${{item.price}}</div>
+            </div>
+        {% endfor %}
+            <div class="cart-item">
+                <div class="item-name">Spring Rolls</div>
+                <div class="item-quantity">
+                    <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                    <span class="quantity">1</span>
+                    <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                </div>
+                <div class="item-price">$10.00</div>
+            </div>
+
+            <!-- Add more items here -->
+        </div>
+
+        <div class="cart-total">
+            <p>${{cart.total_price}}</p>
+            <button id="checkout-button">Checkout</button>
+        </div>
+    </div>
+    <script src="{% static 'js/cart.js' %}"></script>
+</body>
+{% else %}
+            <p id="message">Login to see your cart!</p>
+{% endif %}
+
+</html>
+{% endblock content %}

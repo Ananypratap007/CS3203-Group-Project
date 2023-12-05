@@ -1,0 +1,86 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<html>
+<body>
+    <div class="type-title">
+        Appetizer
+    </div>
+    <div class="menu-detail">
+        {% for product in products %}
+        {% if product.category.name == "appetizer" %}
+        <div class="individual-item">
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">${{product.price}}</div>
+            <div class="dish-img">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="type-title">
+        Entrees
+    </div>
+    <div class="menu-detail">
+        {% for product in products %}
+        {% if product.category.name == "entree" %}
+        <div class="individual-item">
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">${{product.price}}</div>
+            <div class="dish-img">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
+            </div>
+            <button value="{{product.id}}">Add to Cart</button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- Add more menu items here -->
+    </div>
+
+    <div class="type-title">
+        Sides
+    </div>
+    <div class="menu-detail">
+        {% for product in products %}
+        {% if product.category.name == "side" %}
+        <div class="individual-item">
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">${{product.price}}</div>
+            <div class="dish-img">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- Add more menu items here -->
+    </div>
+
+    <div class="type-title">
+        Bevarages
+    </div>
+    <div class="menu-detail">
+        {% for product in products %}
+        {% if product.category.name == "beverage" %}
+        <div class="individual-item">
+            <div class="dish-name">{{product.name}}</div>
+            <div class="price-dish">${{product.price}}</div>
+            <div class="dish-img">
+              <img src="{{ product.picture.url }}" alt="Biryani Image">
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- Add more menu items here -->
+    </div>
+
+    <script src="{% static 'js/cart.js' %}"></script>
+</body>
+
+</html>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}

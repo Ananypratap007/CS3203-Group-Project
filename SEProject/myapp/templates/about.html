@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<html>
+  <body>
+    <div class="about-main">
+        <div class="about-img">
+            <img src="{% static 'asset/asian.png' %}" alt="image">
+        </div>
+
+        <div class="about-content">
+            <h2>About</h2>
+        <p class="slogan">MAKING DELICIOUS THAI & JAPANESE FOOD SINCE EARLY 2000</p>
+        <p>
+            Thai Delight has the best of Thai and Japanese Cuisine. In one stop you can 
+            taste the best of both worlds! Authentic Thai Food from Thai Curries, Thai 
+            Salads, Thai Soups and more. Authentic Japanese Food from Japanese Sushi rolls, 
+            sushi, sashimi and more.
+        </p>
+        <p>
+            Our restaurant will give you great service during your visit with us. From the 
+            delicious food to our friendly service, you will want to come back for more! 
+            Our cooks are well trained and specialized in Thai and Japanese Cuisine to 
+            provide you the best experience with all of our great dishes.
+        </p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

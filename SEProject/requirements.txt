@@ -1,0 +1,5 @@
+Django==4.2.7
+Pillow==10.1.0
+virtualenv==20.24.6
+virtualenvwrapper-win==1.2.7
+yarl==1.7.2

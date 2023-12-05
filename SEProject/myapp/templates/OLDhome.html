@@ -1,0 +1,12 @@
+{% extends "OLDbase.html" %} 
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome to Resturant, {{user.username }}!</p>
+<p>You can <a href="{% url 'logout' %}?next={% url 'myapp:home' %}">Logout</a></p>
+{% else %}
+<p>Welcome Guest!</p>
+<p>You can <a href="{% url 'login' %}?next={{ request.path }}">Login</a> if you have an account.</p>
+<p>You can <a href="{% url 'myapp:signup' %}?next={{ request.path }}">Sign Up</a> if you need to create an account.</p>
+{% endif %}
+
+{% endblock %}
