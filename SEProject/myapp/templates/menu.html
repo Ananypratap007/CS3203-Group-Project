@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <html>
@@ -15,7 +15,7 @@
             <div class="dish-img">
               <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+            <button value="{{product.id}}">Add to Cart</button>
         </div>
         {% endif %}
         {% endfor %}
@@ -52,7 +52,7 @@
             <div class="dish-img">
               <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+            <button value="{{product.id}}">Add to Cart</button>
         </div>
         {% endif %}
         {% endfor %}
@@ -71,7 +71,7 @@
             <div class="dish-img">
               <img src="{{ product.picture.url }}" alt="Biryani Image">
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart('Biryani', 12.99)">Add to Cart</button>
+            <button value="{{product.id}}">Add to Cart</button>
         </div>
         {% endif %}
         {% endfor %}
