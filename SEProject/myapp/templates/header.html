@@ -22,8 +22,8 @@
         {% if user.is_authenticated %}
           <a href="{% url 'logout' %}?next={% url 'myapp:home' %}">LOGOUT</a>
         {% else %}
-          <a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a> 
-{% endif %}
+          <a href="{% url 'login' %}?next={{ request.path }}">LOGIN</a>
+        {% endif %}
         <a href="{% url 'myapp:menu' %}" id="order-now-button">ORDER NOW</a>
       </nav>
     </header>
